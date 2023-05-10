@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  in_contact_back:
+    build: ./
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+
+    restart: always
+    container_name: django
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
