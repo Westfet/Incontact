@@ -1,7 +1,8 @@
 from django.utils.translation import gettext_lazy as _
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import UserNet
+from profiles.models import UserNet
+from profiles.models import UserRelations
 
 
 class UserNetAdmin(UserAdmin):
@@ -18,3 +19,7 @@ class UserNetAdmin(UserAdmin):
 
 
 admin.site.register(UserNet, UserNetAdmin)
+
+@admin.register(UserRelations)
+class UsersRelationsAdminPanel(admin.ModelAdmin):
+    """Manage users relations in admin panel."""
